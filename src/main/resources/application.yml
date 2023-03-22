@@ -1,0 +1,29 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api/app
+spring:    
+  main:
+    lazy-initialization: true
+  application:
+    name: app
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/test
+  jpa:
+    show-sql: true
+      
+logging:
+  level:
+    root: info
+  pattern:
+    level: "%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]"
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+
+    
